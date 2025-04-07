@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: covered-call-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: ADMIN_USER
+        value: your_admin_username
+      - key: ADMIN_PASS
+        value: your_admin_password
+      - key: MAILGUN_API_KEY
+        value: your_mailgun_api_key
+      - key: MAILGUN_DOMAIN
+        value: your_mailgun_domain
+      - key: MAILGUN_FROM
+        value: no-reply@yourdomain.com
+      - key: MAILGUN_TO
+        value: your_email@domain.com
