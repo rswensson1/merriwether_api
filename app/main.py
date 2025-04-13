@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, Header, HTTPException
+from .admin import admin_router
 import sqlite3
 from datetime import datetime
 import os
@@ -28,3 +29,6 @@ def log_api_usage(api_key, endpoint):
     cursor.execute("INSERT INTO api_usage VALUES (?, ?, ?, ?)", (api_key, endpoint, datetime.now().isoformat(), 1))
     conn.commit()
     conn.close()
+
+app.include_router(admin_router, prefix="/admin")
+
