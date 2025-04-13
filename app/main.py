@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Header, HTTPException
-from .admin import admin_router
+from admin import admin_router
 import sqlite3
 from datetime import datetime
 import os
